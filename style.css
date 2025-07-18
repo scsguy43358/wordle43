@@ -1,0 +1,133 @@
+body{
+    font-family: Arial,Sans-Serif;
+    margin:0;
+    padding:0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.KeyboardContainer{
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    background-color: lavender;
+}
+.keyboard{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 800px;
+    width: 100%;
+}
+.row{
+    display: flex;
+    justify-content: center;
+    gap:6px;
+}
+.keys{
+    height: 50px;
+    min-width: 40px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.1s ease;
+}
+.widekeys{
+    min-width: 80px;
+}
+.keys:active, .keys.active{
+    background-color: lightgray;
+    transform: scale(1.05);
+}
+.keys:hover{
+    background-color: lightgray;
+}
+.keys.disabled{
+    opacity: 0.2;
+    cursor: not-allowed;
+    background-color: orange !important;
+}
+@keyframes pulse {
+    0%{opacity: 0.2;}
+    50%{opacity: 0.6;}
+    100%{opacity: 0.2;}
+}
+.keys.loading{
+    animation: pulse 1.5s infinite;
+}
+.invalid{
+    border: 2px white;
+    background-color: white;
+}
+.guess{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 20px 20px;
+    background-color: white;
+    border-bottom: 2px solid deepskyblue;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+.current{
+    display: flex;
+    gap: 8px;
+}
+.letter{
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: white;
+    margin-bottom: 10px;
+}
+.letter.filled{
+    border-color: blue;
+    animation: pop 0.1s ease;
+}
+@keyframes pop {
+    0%{transform: scale(0.95);}
+    50%{transform: scale(1.05);}
+    100%{transform: scale(1);}
+}
+.current.invalid{
+    animation: shake 0.5s;
+}
+@keyframes shake {
+    0%,100%{transform: translateX(0);}
+    10%,30%,50%,70%,90%{transform: translateX(-5px);}
+    20%,40%,60%,80%{transform:translateX(5px);}
+}
+.enter_button:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: cornflowerblue !important;
+}
+.guesshistory{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.guess-row{
+    display: flex;
+    gap: 8px;
+}button.disabled{
+    background-color: gray;
+    pointer-events: none;
+    opacity: 0.5;
+ }
